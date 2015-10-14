@@ -1,5 +1,5 @@
 //: # Unleashing Swift
-
+//: This page of the playground serves to get you up to speed with Swift concepts as quickly as possible
 
 //: ## Mutability
 
@@ -81,5 +81,6 @@ meanScore
 
 
 
+//: [Next](@next)
 
 
