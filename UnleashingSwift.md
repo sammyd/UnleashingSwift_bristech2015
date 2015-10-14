@@ -37,6 +37,43 @@
 
 ---
 
+# Some code
+
+```swift
+var arr = [3, 4, 1, 6, 2, 5];
+
+arr.sort();
+
+arr; //= ??
+```
+
+### What's the langauge?
+### and the result?
+
+---
+# Javascript
+
+```javascript
+var arr = [3, 4, 1, 6, 2, 5];
+
+arr.sort();
+
+arr; //= [1, 2, 3, 4, 5, 6]
+```
+
+---
+# Swift
+
+```swift
+var arr = [3, 4, 1, 6, 2, 5];
+
+arr.sort();
+
+arr; //= [3, 4, 1, 6, 2, 5]
+```
+
+
+---
 # [fit] __Demo__
 
 ---
@@ -94,7 +131,7 @@ struct Point3D {
 ```
 
 ---
-# Initialisation
+# Class Initialisation
 
 1. All stored properties
 2. super.init() / self.init()
@@ -105,30 +142,60 @@ struct Point3D {
 # Functions
 
 ```swift
-func square(value: Int) -> Int {
+func power(value: Int) -> Int {
   return value * value
+}
+```
+
+```swift
+func
+```
+
+---
+# Extensions
+
+- Add functionality to types
+
+```swift
+extension Int {
+  func toThePower(power: Int) -> Int {
+    return exponentiate(self, power: power)
+  }
+}
+
+2.toThePower(5)
+```
+
+---
+# Closures
+
+```swift
+typealias Callback = (reply: String) -> ()
+
+func asyncHello(name: String, callback: Callback) {
+  callback(reply: "Hello \(name)")
 }
 ```
 
 
 ---
-#
+# Functional Tinge
 
-
+- Functions are 1st class
+- `map`, `reduce`, `filter` on `CollectionType`
+- TLO implemented
 
 ---
 
 # [fit] __Demo__
 
-
-
----
-# Optionals
-
-
 ---
 # Enums
 
+- Raw values
+- Associated values
+- Equivalent to mapping `||`
+- Recursive enums
 
 
 ---
@@ -136,8 +203,69 @@ func square(value: Int) -> Int {
 
 
 ---
+# Optionals
+
+- Handling of nil
+- Just an enum with some syntactic sugar
+
+```swift
+enum Optional<Wrapped> {
+  case None
+  case Some(Wrapped)
+}
+```
+
+---
+
+# [fit] **?**!**??**
+
+
+
+---
 # Protocols
 
 
 ---
-# Mutability
+# [fit] Other
+# [fit] Stuff
+
+
+---
+# Other Stuff
+
+- Interoperability
+- Tuples
+- Generics
+- Error Handling
+- Playgrounds
+
+---
+# [fit] the
+# [fit] **future**
+
+---
+# [fit] **Open**
+# [fit] source
+
+---
+# [fit] how can
+# [fit] I **play**?
+
+
+---
+# [fit] buy a
+# [fit] **proper** computer
+
+---
+# [fit] **or** wait
+
+---
+> you become a **better programmer** by **playing** with other lanugages
+-- Me, just now
+
+---
+# [fit] go forth
+# [fit] and **play**
+
+### @iwantmyrealname
+### github.com/sammyd

@@ -1,37 +1,6 @@
 //: [Previous](@previous)
 //: # Moving Forward
 
-//: ## Optionals
-
-let names = ["Anna", "Brian", "Charlie", "Esme"]
-
-func findIndexOfName(name: String) -> Int? {
-  for (index, testName) in names.enumerate() {
-    if testName == name {
-      return index
-    }
-  }
-  return .None
-}
-
-findIndexOfName("Anna")
-findIndexOfName("Dave")
-
-let flatNumbers = ["12A", "1", "1234", "56"]
-
-if let annasIndex = findIndexOfName("Anna") {
-  flatNumbers[annasIndex]
-}
-
-func leaveMailFor(name: String) -> String {
-  guard let nameIndex = findIndexOfName(name) else { return "Please leave mail at reception" }
-  return "Leave mail for \(name) at \(flatNumbers[nameIndex])"
-}
-
-leaveMailFor("Dave")
-
-
-
 
 //: ## Enums
 //: Raw Values
@@ -99,6 +68,38 @@ func greeting(name: String) -> String {
 greeting("Dave")
 greeting("Sam")
 greeting("Esme")
+
+//: ## Optionals
+
+let names = ["Anna", "Brian", "Charlie", "Esme"]
+
+func findIndexOfName(name: String) -> Int? {
+  for (index, testName) in names.enumerate() {
+    if testName == name {
+      return index
+    }
+  }
+  return .None
+}
+
+findIndexOfName("Anna")
+findIndexOfName("Dave")
+
+let flatNumbers = ["12A", "1", "1234", "56"]
+
+if let annasIndex = findIndexOfName("Anna") {
+  flatNumbers[annasIndex]
+}
+
+func leaveMailFor(name: String) -> String {
+  guard let nameIndex = findIndexOfName(name) else { return "Please leave mail at reception" }
+  return "Leave mail for \(name) at \(flatNumbers[nameIndex])"
+}
+
+leaveMailFor("Dave")
+
+
+
 
 //: ## Protocols
 
