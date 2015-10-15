@@ -74,7 +74,18 @@ arr; //= [3, 4, 1, 6, 2, 5]
 
 
 ---
-# [fit] __Demo__
+# [fit] getting
+# [fit] __started__
+
+---
+# Getting Started
+
+- Mutability
+- Value types
+- Classes / Structs
+- Functions
+- Extensions
+- Closures
 
 ---
 # Mutability
@@ -94,9 +105,9 @@ thirteen = 12
 ```swift
 var title = "This is a string"
 var secondTitle = title
-secondTitle += ", which has just got longer"
+secondTitle += ", extended"
 print(title)       // "This is a string"
-print(secondTitle) // "This is a string, which has just got longer"
+print(secondTitle) // "This is a string, extended"
 ```
 
 ---
@@ -142,13 +153,23 @@ struct Point3D {
 # Functions
 
 ```swift
-func power(value: Int) -> Int {
+func square(value: Int) -> Int {
   return value * value
 }
 ```
 
 ```swift
-func
+func exp(value: Int, power: Int) -> Int {
+  return power > 0 ? value * exp(value, power: power-1) : 1
+}
+```
+
+```swift
+func curryPower(power: Int)(_ value: Int) -> Int {
+  return exponentiate(value, power: power)
+}
+let cube = curryPower(3)
+cube(3) //= 27
 ```
 
 ---
@@ -185,9 +206,24 @@ func asyncHello(name: String, callback: Callback) {
 - `map`, `reduce`, `filter` on `CollectionType`
 - TLO implemented
 
+```swift
+let scores = [1, 2, 4, 5, 3, 5]
+let cubedScores = scores.map { cube($0) }
+              //= [1, 8, 64, 125, 27, 125]
+```
+
 ---
 
-# [fit] __Demo__
+# [fit] __"modern"__
+# [fit] concepts
+
+---
+# Modern Concepts
+
+- Enums
+- Pattern Matching
+- Optionals
+- Protocols
 
 ---
 # Enums
@@ -197,10 +233,32 @@ func asyncHello(name: String, callback: Callback) {
 - Equivalent to mapping `||`
 - Recursive enums
 
+```swift
+enum Activity: String {
+  case Running
+  case Swimming
+  case Cycling
+}
+```
 
 ---
 # Pattern Matching
 
+- Concept from functional languages
+- Part of `if` and `switch`
+
+```swift
+func evaluate(expresion: ArithmeticExpression) -> Int {
+  switch expresion {
+  case .Number(let value):
+    return value
+  case .Addition(let left, let right):
+    return evaluate(left) + evaluate(right)
+  case .Multiplication(let left, let right):
+    return evaluate(left) * evaluate(right)
+  }
+}
+```
 
 ---
 # Optionals
@@ -223,6 +281,22 @@ enum Optional<Wrapped> {
 
 ---
 # Protocols
+
+The problems with classes:
+
+- Inheritance
+- Implicit sharing
+- Lose type relationships
+
+
+---
+# Protocols
+## (a.k.a. Interfaces)
+
+- Supports value types
+- Can add functionality to existing types
+- No instance data available
+- Can include default implementations
 
 
 ---

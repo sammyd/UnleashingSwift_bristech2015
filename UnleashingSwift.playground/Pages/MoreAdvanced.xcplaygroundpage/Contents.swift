@@ -102,5 +102,18 @@ leaveMailFor("Dave")
 
 
 //: ## Protocols
+protocol Ordered {
+  func precedes(other: Self) -> Bool
+}
+
+
+class Number : Ordered {
+  var value: Double = 0
+  func precedes(other: Number) -> Bool {
+    return value < other.value
+  }
+}
+
+
 
 //: [Next](@next)
