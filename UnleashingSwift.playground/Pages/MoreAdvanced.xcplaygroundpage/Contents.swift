@@ -4,96 +4,44 @@
 
 //: ## Enums
 //: Raw Values
-enum Activity: String {
-  case Running
-  case Swimming
-  case Cycling
-}
-
-let cycling = Activity.Cycling.rawValue
+// Activity
 
 //: Associated Values
-enum BillingItem {
-  case PhoneCall(minutes: Int)
-  case Data(bytes: Int)
-  case SMS(number: Int)
-}
-
-let text = BillingItem.SMS(number: 34)
-let call = BillingItem.PhoneCall(minutes: 10)
+// BillingItem
 
 
 //: Recursive
-enum ArithmeticExpression {
-  case Number(Int)
-  indirect case Addition(ArithmeticExpression, ArithmeticExpression)
-  indirect case Multiplication(ArithmeticExpression, ArithmeticExpression)
-}
-
-
-let seven = ArithmeticExpression.Number(6)
-let two = ArithmeticExpression.Number(2)
-let sum = ArithmeticExpression.Addition(seven, two)
-let product = ArithmeticExpression.Multiplication(sum, ArithmeticExpression.Number(3))
+// ArithmeticExpression
 
 
 
 //: ## Pattern Matching
 
-func evaluate(expresion: ArithmeticExpression) -> Int {
-  switch expresion {
-  case .Number(let value):
-    return value
-  case .Addition(let left, let right):
-    return evaluate(left) + evaluate(right)
-  case .Multiplication(let left, let right):
-    return evaluate(left) * evaluate(right)
-  }
-}
-
-evaluate(product)
+// evaluate for ArithmeticExpresion
 
 
-func greeting(name: String) -> String {
-  switch name {
-  case "Dave":
-    return "Pretty sure you still don't exist"
-  case "Sam":
-    return "Hi handsome"
-  default:
-    return "Hello \(name)"
-  }
-}
 
-greeting("Dave")
-greeting("Sam")
-greeting("Esme")
+// name-dependent greeting
+
 
 //: ## Optionals
 
 let names = ["Anna", "Brian", "Charlie", "Esme"]
 
-func findIndexOfName(name: String) -> Int? {
-  for (index, testName) in names.enumerate() {
-    if testName == name {
-      return index
-    }
-  }
-  return .None
-}
+// Find the index
 
-findIndexOfName("Anna")
-findIndexOfName("Dave")
+
+
 
 let flatNumbers = ["12A", "1", "1234", "56"]
+// Find the corresponding flat number
 
-if let annasIndex = findIndexOfName("Anna") {
-  flatNumbers[annasIndex]
-}
+
+
+// Find out where to leave the mail
 
 func leaveMailFor(name: String) -> String {
-  guard let nameIndex = findIndexOfName(name) else { return "Please leave mail at reception" }
-  return "Leave mail for \(name) at \(flatNumbers[nameIndex])"
+  return ""
 }
 
 leaveMailFor("Dave")
@@ -102,17 +50,11 @@ leaveMailFor("Dave")
 
 
 //: ## Protocols
-protocol Ordered {
-  func precedes(other: Self) -> Bool
+class Ordered {
+  func precedes(other: Ordered) -> Bool { fatalError("Implement me") }
 }
 
-
-class Number : Ordered {
-  var value: Double = 0
-  func precedes(other: Number) -> Bool {
-    return value < other.value
-  }
-}
+// Create Number
 
 
 
